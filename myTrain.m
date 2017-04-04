@@ -20,12 +20,12 @@ for j = 1:epochs
         minibatchSets(:,:,k) = trainSet(k:k + minibatchSize,:);
     end
     for k = 1:nMinibatches
-        updateMinibatch(minibatchSets(:,:,k),minibatchAnswerses(:,k));
+        updateMinibatch(minibatchSets(:,:,k),minibatchAnswerses(:,k),eta);
     end
     
 end
 
-    function updateMinibatch(minibatchSet,minibatchAnswers)
+    function updateMinibatch(minibatchSet,minibatchAnswers,eta)
         dzdx = vl_nnsoftmax(minibatchSet,minibatchAnswers,dzdy);
     end
 end
